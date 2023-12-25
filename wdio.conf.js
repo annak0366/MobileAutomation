@@ -4,8 +4,7 @@ exports.config = {
   
     updateJob: false,
     specs: [
-      //'./test/specs/**.e2e.js'
-      './test/specs/example.e2e.js',
+      './test/specs/*.js',
     ],
     exclude: [],
   
