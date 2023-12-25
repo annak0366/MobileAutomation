@@ -1,6 +1,8 @@
 const assert = require('assert');
-const inputText = 'Test123';
-const password = 'Test123&#'
+const randomData = require('../randomData');
+const inputText = randomData.text();
+const password = randomData.password();
+const email = randomData.email();
 
  describe('My First demo appp testing', () => {
     it('Checking Switch functionality', async() => {
@@ -32,23 +34,18 @@ const password = 'Test123&#'
     });
  
     it('Checking the Horizontal swipe functionality', async () => {
-        const SWIPE_ICON_HOME_SCREEN = `//android.widget.Button[@content-desc="Swipe"]/android.widget.TextView`;
-        const SWIPE_HEADER_TEXT = `//android.widget.ScrollView[@content-desc="Swipe-screen"]/android.view.ViewGroup/android.view.ViewGroup[1]/android.widget.TextView`;
-
+        const swipeIcon = `//android.widget.Button[@content-desc="Swipe"]/android.widget.TextView`;
+        const headerText = `//android.widget.ScrollView[@content-desc="Swipe-screen"]/android.view.ViewGroup/android.view.ViewGroup[1]/android.widget.TextView`;
         const expectedText = 'GREAT COMMUNITY';
-
-        await $(SWIPE_ICON_HOME_SCREEN).click();
-        await $(SWIPE_HEADER_TEXT).click();
-    
+        await $(swipeIcon).click();
+        await $(headerText).click();
         const anchorPercentage = 50;
         const startPointPercentage = 90;
         const endPointPercentage = 10;
-    
         const { height, width } = await driver.getWindowSize();
         const anchor = height * anchorPercentage / 100;
         const startPoint = width * startPointPercentage / 100;
         const endPoint = width * endPointPercentage / 100;
-    
         await driver.touchPerform([
             {
                 action: 'press',
@@ -82,7 +79,7 @@ const password = 'Test123&#'
     it('Checking the Sign Up functionality', async() => {
         await $(`~Login`).click();
         await $(`~button-sign-up-container`).click();
-        await $(`~input-email`).setValue('gbdwhd@gmail.com');
+        await $(`~input-email`).setValue(email);
         await $(`~input-password`).setValue(password);
         await $(`~input-repeat-password`).setValue(password);
         await $(`//android.view.ViewGroup[@content-desc="button-SIGN UP"]/android.view.ViewGroup/android.widget.TextView`).click();
