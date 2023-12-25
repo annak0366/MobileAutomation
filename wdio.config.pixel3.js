@@ -1,13 +1,11 @@
 exports.config = {
     user: process.env.BROWSERSTACK_USERNAME || 'anna_rFw9Wf',
     key: process.env.BROWSERSTACK_ACCESS_KEY || 'R7svfN1pu97ZCSXfaTEw',
-
     updateJob: false,
     specs: [
         './test/specs/*.js',
     ],
     exclude: [],
-
     capabilities: [{
         project: "First Webdriverio Android Project",
         build: 'Webdriverio Android',
@@ -19,9 +17,7 @@ exports.config = {
         'browserstack.debug': true,
         showDeviceScreen: true
     }],
-
     require: ['ts-node/register'],
-
     logLevel: 'info',
     coloredLogs: true,
     screenshotPath: './errorShots/',
@@ -29,7 +25,6 @@ exports.config = {
     waitforTimeout: 10000,
     connectionRetryTimeout: 90000,
     connectionRetryCount: 3,
-
     framework: 'mocha',
     mochaOpts: {
         ui: 'bdd',

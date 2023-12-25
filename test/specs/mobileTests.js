@@ -1,8 +1,8 @@
 const assert = require('assert');
-const randomData = require('../randomData');
-const inputText = randomData.text();
-const password = randomData.password();
-const email = randomData.email();
+const randomData = require('../../test/randomData.js');
+const inputText = randomData.getRandomString(5);
+const password = randomData.getRandomString(8);
+const email = randomData.getRandomEmail();
 
  describe('My First demo appp testing', () => {
     it('Checking Switch functionality', async() => {
@@ -12,7 +12,6 @@ const email = randomData.email();
         const textElement = await $(`//android.widget.TextView[@content-desc="switch-text"]`).getText();
         assert.strictEqual(textElement, 'Click to turn the switch OFF');
     });
-
     it('Checking the "Input Field" functionality', async() => {
         const inputField = `//android.widget.EditText[@content-desc="text-input"]`;
         const typedText = `//android.widget.TextView[@content-desc="input-text-result"]`;
@@ -21,7 +20,6 @@ const email = randomData.email();
         const text = await $(typedText).getText();
         assert.strictEqual(text, inputText);
     });
-
     it('Checking the dropdown functionality', async() => {
         await $(`~Forms`).click();
         await $(`~Dropdown`).click();
@@ -32,7 +30,6 @@ const email = randomData.email();
         const actualText = await dropdownElement.getText();
         assert.strictEqual(actualText, itemText);
     });
- 
     it('Checking the Horizontal swipe functionality', async () => {
         const swipeIcon = `//android.widget.Button[@content-desc="Swipe"]/android.widget.TextView`;
         const headerText = `//android.widget.ScrollView[@content-desc="Swipe-screen"]/android.view.ViewGroup/android.view.ViewGroup[1]/android.widget.TextView`;
@@ -75,7 +72,6 @@ const email = randomData.email();
         console.log('Teeeexttt', actualText);
         assert.strictEqual(actualText, expectedText);
     });
-
     it('Checking the Sign Up functionality', async() => {
         await $(`~Login`).click();
         await $(`~button-sign-up-container`).click();
