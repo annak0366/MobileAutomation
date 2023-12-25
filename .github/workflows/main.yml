@@ -3,7 +3,7 @@ name: WebDriverIO Tests
 on:
   push:
     branches:
-      - main
+      - master
 
 jobs:
   test:
