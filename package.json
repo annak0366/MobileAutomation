@@ -6,6 +6,8 @@
     "@wdio/spec-reporter": "^8.1.0"
   },
   "scripts": {
-    "test": "wdio run ./wdio.conf.js"
+    "test": "wdio run ./wdio.conf.js",
+    "run:pixel3": "npx wdio wdio.config.pixel3.js",
+    "run:samsung": "npx wdio wdio.config.samsungS21.js"
   }
 }
