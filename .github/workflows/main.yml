@@ -1,4 +1,4 @@
-name: WebDriverIO Tests
+name: WebDriverIO Test
 
 on:
   push:
